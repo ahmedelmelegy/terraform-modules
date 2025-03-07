@@ -60,7 +60,7 @@ resource "aws_s3_bucket_cors_configuration" "cors-test" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["PUT", "POST","HEAD","DELETE"]
-    allowed_origins = [""]
+    allowed_origins = ["*"]
     expose_headers  = []
     max_age_seconds = 3000
   }
