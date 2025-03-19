@@ -11,3 +11,5 @@ crash.log
 
 # Ignore plan files
 *.tfplan
+
+*tf.disabled

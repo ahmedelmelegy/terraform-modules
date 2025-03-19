@@ -38,7 +38,7 @@ resource "aws_security_group" "efs-sg" {
       from_port = 2049
       to_port = 2049
       protocol = "tcp"
-      security_groups = ["sg-0d3be17332a2a1001"]
+      security_groups = [aws_security_group.ecs-sg.id]
   }
 
   // outbound internet access
