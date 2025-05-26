@@ -30,3 +30,9 @@ variable "app_replica_count" {
     type = number
     default = 2
 }
+
+variable "container_image" {
+  description = "The container image to use for the application (e.g., 'my-repo/my-app:latest')"
+  type        = string
+  default     = null  # This will force users to specify an image
+}

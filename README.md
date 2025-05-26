@@ -87,6 +87,7 @@ terraform destroy
 | app_cpu | CPU units for the container (1024 = 1 vCPU) | 1024 |
 | app_memory | Memory for the container in MB | 2048 |
 | app_replica_count | Number of container instances to run | 2 |
+| container_image | The container image to use for the application | null (uses ECR repo) |
 
 ### Example Configuration
 
@@ -100,6 +101,7 @@ app_port         = 8080
 app_cpu          = 512
 app_memory       = 1024
 app_replica_count = 3
+container_image  = "nginx:latest"  # Example using nginx from Docker Hub or from ECR ${aws_ecr_repository.apps_ecr.repository_url}:latest 
 ```
 
 ## Repository Structure
@@ -143,4 +145,3 @@ terraform-modules/
    docker push $(terraform output -raw repository_url):latest
    ```
 5. The ECS service will automatically deploy the latest image
-
