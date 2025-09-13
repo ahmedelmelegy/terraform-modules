@@ -31,6 +31,11 @@ variable "app_replica_count" {
   default = 2
 }
 
+variable "ecr_name" {
+  type        = string
+  default     = "app_acr"
+}
+
 variable "container_image" {
   description = "The container image to use for the application (e.g., 'my-repo/my-app:latest')"
   type        = string
