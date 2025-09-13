@@ -7,7 +7,7 @@ data "aws_partition" "current" {}
 resource "aws_ecr_repository" "apps_ecr" {
   name                 = "apps_ecr"
   image_tag_mutability = "MUTABLE"
-  force_delete = true
+  force_delete         = true
   image_scanning_configuration {
     scan_on_push = true
   }

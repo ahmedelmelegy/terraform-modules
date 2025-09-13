@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "app_task" {
       name      = "app-container"
       image     = coalesce(var.container_image, "${aws_ecr_repository.apps_ecr.repository_url}:latest")
       essential = true
-      
+
       portMappings = [
         {
           containerPort = var.app_port
@@ -20,14 +20,14 @@ resource "aws_ecs_task_definition" "app_task" {
           protocol      = "tcp"
         }
       ]
-      
+
       environment = [
         {
           name  = "NODE_ENV"
           value = "production"
         }
       ]
-      
+
       logConfiguration = {
         logDriver = "awslogs"
         options = {

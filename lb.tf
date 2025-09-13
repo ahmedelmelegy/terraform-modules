@@ -1,13 +1,13 @@
 resource "aws_lb" "ecs-alb" {
-  subnets = [for subnet in aws_subnet.public : subnet.id]
-  name = "ecs-lb"
+  subnets            = [for subnet in aws_subnet.public : subnet.id]
+  name               = "ecs-lb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb-sg.id]
 }
 
 resource "aws_lb_target_group" "ecs-lb-tg" {
-  name = "ecs-app-service"
+  name        = "ecs-app-service"
   port        = var.app_port
   protocol    = "HTTP"
   vpc_id      = aws_vpc.ecs-vpc.id
